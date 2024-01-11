@@ -43,7 +43,7 @@ if (!empty($_POST)) {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>UKPK</title>
+		<title>SkillMatch</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- FONTAWESOME STYLES-->
@@ -94,7 +94,7 @@ if (!empty($_POST)) {
 										<button type="submit" class="btn btn-primary col-lg-12">
 											Login
 										</button>
-                                        
+
 
 									</form>
 								</div>
