@@ -35,11 +35,11 @@ if($type=='question'){
 	$q -> execute(array($flag,$id));
 	
 	if(empty($cd)){
-		echo "<script>window.location.href='home.php?menu=question-detail&id=$id';</script>";
+		echo "<script>window.location.href='home.php?menu=question-detail&id=$cd';</script>";
 		exit;
 	}else{
 
-		echo "<script>window.location.href='home.php?menu=category-detail&id=$id';</script>";		exit;
+		echo "<script>window.location.href='home.php?menu=category-detail&id=$cd';</script>";		exit;
 		exit;
 	}
 }

@@ -36,7 +36,8 @@ Database::disconnect();
 					<div class="panel-body">
 						<div class="text-center">
 							<span class="labelError" style="font-size: 16px;">Sistem Aplikasi</span><br>
-							<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span>
+							<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span><br>
+                            <span style="font-size: 16px;font-weight: bold">Alia Islamic School Tangerang</span>
 							<h6>Tanggal <?php echo date("d-m-Y"); ?></h6>
 						</div>
 						<br>
@@ -88,7 +89,8 @@ Database::disconnect();
 		<div class="panel-body">
 			<div class="text-center">
 				<span class="labelError" style="font-size: 16px;">Sistem Aplikasi</span><br>
-				<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span>
+				<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span><br>
+                <span style="font-size: 16px;font-weight: bold">Alia Islamic School Tangerang</span>
 				<h6>Terimakasih anda telah mengikuti uji kompetensi penerimaan karyawan</h6>
 			</div>
 			<br>

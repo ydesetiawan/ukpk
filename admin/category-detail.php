@@ -12,7 +12,7 @@ $category_name = $categoryDetail['category_name'];
 $description = $categoryDetail['description'];
 $activeFlag = $categoryDetail['active_flag'];
 
-$sql_question = "SELECT *,q.active_flag as q_active_flag FROM question q,category c WHERE q.category_id = c.category_id AND q.category_id = '$category_id'";
+$sql_question = "SELECT *,q.active_flag as q_active_flag FROM question q,category c WHERE q.category_id = c.category_id AND q.category_id = :category_id ";
 
 Database::disconnect();
 ?>
@@ -47,7 +47,7 @@ Database::disconnect();
 									<a class="btn btn-primary" href="home.php?menu=category-edit&id=<?php echo $category_id; ?>"><i class="fa fa-edit"></i>&nbsp;Edit</a>
 									<?php if($activeFlag==1){
 									?>
-									<a class="btn btn-danger" href="home.php?menu=active-flag&id=<?php echo $category_id; ?>&flag=0&type=category"><i class="fa fa-lock"></i>&nbsp;Non Aktifkan</a>
+									<a class="btn btn-danger" href="home.php?menu=active-flag&id=<?php echo $category_id; ?>&flag=0&type=category"><i class="fa fa-lock"></i>&nbsp;Hapus</a>
 									<?php }else{ ?>
 									<a class="btn btn-success" href="home.php?menu=active-flag&id=<?php echo $category_id; ?>&flag=1&type=category"><i class="fa fa-unlock"></i>&nbsp;Aktifkan</a>
 									<?php } ?>
@@ -67,7 +67,12 @@ Database::disconnect();
 					<div class="panel-body" >
 						<?php
 						$i = 1;
-						foreach ($pdo->query($sql_question) as $row) {
+                        $stmt = $pdo->prepare($sql_question);
+                        $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
+
+                        // Execute the query
+                        $stmt->execute();
+                        foreach ($stmt as $row) {
 							$question_id = $row['question_id'];
 							$questionText = $row['question_text'];
 							$answerA = $row['answer_a'];
@@ -160,7 +165,7 @@ Database::disconnect();
 									</div>
 								</div>
 								<div class="col-md-12 text-right">
-									<a class="btn btn-primary" href="home.php?menu=question-edit&id=<?php echo $question_id; ?>&cd=<?php echo $category_id; ?>"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+									<a class="btn btn-primary" href="home.php?menu=question-edit&id=<?php echo $question_id; ?>&id=<?php echo $category_id; ?>"><i class="fa fa-edit"></i>&nbsp;Edit</a>
 									<?php if($activeFlag==1){
 									?>
 									<a class="btn btn-danger" href="home.php?menu=active-flag&id=<?php echo $question_id; ?>&flag=0&type=question&cd=<?php echo $category_id; ?>"><i class="fa fa-lock"></i>&nbsp;Non Aktifkan</a>

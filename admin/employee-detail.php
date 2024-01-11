@@ -105,7 +105,7 @@ Database::disconnect();
 								<div class="col-md-12 text-right">
 									<a class="btn btn-primary" href="home.php?menu=employee-edit&id=<?php echo $user_detail_id; ?>"><i class="fa fa-edit"></i>&nbsp;Edit</a>
 									<?php if($activeFlag==1){ ?>
-									<a class="btn btn-danger" href="home.php?menu=active-flag&id=<?php echo $user_detail_id; ?>&username=<?php echo $register_id; ?>&flag=0&type=userdetail"><i class="fa fa-lock"></i>&nbsp;Non Aktifkan</a>
+									<a class="btn btn-danger" href="home.php?menu=active-flag&id=<?php echo $user_detail_id; ?>&username=<?php echo $register_id; ?>&flag=0&type=userdetail"><i class="fa fa-lock"></i>&nbsp;Hapus</a>
 									<?php }else{ ?>
 									<a class="btn btn-success" href="home.php?menu=active-flag&id=<?php echo $user_detail_id; ?>&username=<?php echo $register_id; ?>&flag=1&type=userdetail"><i class="fa fa-unlock"></i>&nbsp;Aktifkan</a>
 									<?php } ?>

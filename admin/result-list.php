@@ -94,7 +94,8 @@ $i = 1;
 		<div class="panel panel-default">
 			<div class="panel-heading text-center">
 				<span class="labelError" style="font-size: 16px;">Sistem Aplikasi</span><br>
-				<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span>
+				<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span><br>
+                <span style="font-size: 16px;font-weight: bold">Alia Islamic School Tangerang</span>
 				<h5>Data Hasil Uji Kompetensi</h5>
 			</div>
 			<div>
