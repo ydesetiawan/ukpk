@@ -58,23 +58,27 @@ if (!empty($_POST)) {
 		</style>
 	</head>
 	<body>
-		<div id="page-inner" >
-			<div class="row">
-				<div class="col-md-offset-4 col-md-4">
-					<span class="labelError" style="font-size: 16px;">Sistem Aplikasi</span><br>
-					<span style="font-size: 22px;font-weight: bold">Uji Kompetensi Penerimaan Karyawan</span>
-					<hr />
-				</div>
-			</div>
+  		<div id="page-inner" >
+
 
 			<div class="row">
 				<div class="col-md-offset-4 col-md-4">
 					<!-- Form Elements -->
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							Login
-						</div>
+                        <div class="panel-body">
+                            <div>
+                                <div class="card-header text-center">
+                                    <img src="assets/img/skill-match-logo.png" width="300px"/>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <h3>Welcome to skillmatch </h3>
+                            Please login to your account and start the adventure
+                        </div>
 						<div class="panel-body">
+
 							<div class="row">
 								<div class="col-md-12">
 									<form action="login.php" method="post">
@@ -87,9 +91,10 @@ if (!empty($_POST)) {
 											<label>Password</label>
 											<input type="password" class="form-control" name="password" />
 										</div>
-										<button type="submit" class="btn btn-primary pull-right">
+										<button type="submit" class="btn btn-primary col-lg-12">
 											Login
 										</button>
+                                        
 
 									</form>
 								</div>
