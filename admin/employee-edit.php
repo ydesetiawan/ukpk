@@ -185,7 +185,7 @@ if (!empty($_POST)) {
 									</div>
 									<div class="form-group <?php echo !empty($passwordError) ? 'has-error' : ''; ?>">
 										<label>Password*<span class="labelError"> <?php echo !empty($passwordError) ? $passwordError : ''; ?></span></label>
-										<input type="password" class="form-control" id="employee_password" name="password" readonly="readonly" value="<?php echo $date_of_birth; ?>"/>
+										<input type="password" class="form-control" name="password"/>
 									</div>
 									<div class="form-group <?php echo !empty($emailError) ? 'has-error' : ''; ?>" >
 										<label>Email*<span class="labelError"> <?php echo !empty($emailError) ? $emailError : ''; ?></span></label>

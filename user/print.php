@@ -13,6 +13,7 @@ if (isset($_SESSION['role'])) {
 } else {
 	header("Location:login.php");
 }
+
 require 'database.php';
 $pdo = Database::connect();
 $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

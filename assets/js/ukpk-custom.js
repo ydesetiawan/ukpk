@@ -5,9 +5,9 @@ $('.datepicker').datepicker({
 });
 
 //employee
-$("#employee_date_of_birth").on("changeDate", function(event) {
-	$("#employee_password").val($("#employee_date_of_birth").datepicker('getFormattedDate'));
-});
+// $("#employee_date_of_birth").on("changeDate", function(event) {
+// 	$("#employee_password").val($("#employee_date_of_birth").datepicker('getFormattedDate'));
+// });
 
 //start-test
 $("#answerA").on("change", function(event) {
@@ -25,10 +25,8 @@ $("#answerD").on("change", function(event) {
 
 
 
-print
 $("div.print-page").hide();
 $("#onPrint").on("click", function(event) {
-
 	Popup($("div.print-page").html());
 });
 function Popup(data) {

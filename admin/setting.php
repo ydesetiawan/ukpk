@@ -42,7 +42,8 @@ if (!empty($_POST)) {
 
 	file_put_contents($fname, $content);
 
-	header("Location: home.php?menu=setting&flag=1");
+    echo "<script>window.location.href='home.php?menu=setting&flag=1';</script>";
+    exit;
 }
 ?>
 

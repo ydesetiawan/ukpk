@@ -21,6 +21,8 @@ Database::disconnect();
 
 if (!empty($_POST)) {
 
+
+
 	$register_idError = null;
 	$nameError = null;
 	$genderError = null;
@@ -95,9 +97,10 @@ if (!empty($_POST)) {
 
 	$pdo = Database::connect();
 	$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM user WHERE username = '$username' ";
+	$sql = "SELECT * FROM user WHERE username = ?";
 	$q = $pdo -> prepare($sql);
 	$q -> execute(array($username));
+
 	$user = $q -> fetch(PDO::FETCH_ASSOC);
 
 	if (!empty($user)) {
@@ -113,18 +116,30 @@ if (!empty($_POST)) {
 		$q = $pdo -> prepare($sql);
 		$q -> execute(array($username, $password, 'USER', TRUE));
 
-		// select user
-		$sql = "SELECT * FROM user WHERE username = '$username' ";
-		$q = $pdo -> prepare($sql);
-		$q -> execute(array($username));
-		$user = $q -> fetch(PDO::FETCH_ASSOC);
-		// insert user detail
-		$sql = "INSERT INTO user_detail (register_id, name,email, gender, address, phone, place_of_birth, date_of_birth, education, univ, ipk, no_ijazah, user_id,active_flag) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		$q = $pdo -> prepare($sql);
-		$q -> execute(array($register_id, $name,$email, $gender, $address, $phone, $place_of_birth, $date_of_birth, $education, $univ, $ipk, $noIjazah, $user['user_id'], TRUE));
-		
-		echo "<script>window.location.href='home.php?menu=employee-list';</script>";
-		exit;
+
+        try {
+
+            // select user
+            $sql = "SELECT * FROM user WHERE username = ? ";
+            $q = $pdo -> prepare($sql);
+            $q -> execute(array($username));
+            $user = $q -> fetch(PDO::FETCH_ASSOC);
+            // insert user detail
+            $sql = "INSERT INTO user_detail (register_id, name,email, gender, address, phone, place_of_birth, date_of_birth, education, univ, ipk, no_ijazah, user_id,active_flag) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            echo $sql;
+            $q = $pdo -> prepare($sql);
+            $q -> execute(array($register_id, $name,$email, $gender, $address, $phone, $place_of_birth, $date_of_birth, $education, $univ, $ipk, $noIjazah, $user['user_id'], TRUE));
+
+            echo "<script>window.location.href='home.php?menu=employee-list';</script>";
+            exit;
+        } catch (Exception $e) {
+            // Catch the exception and log a message
+            $errorMessage = "Error: " . $e->getMessage();
+            error_log($errorMessage);
+            echo $errorMessage;
+
+        }
+
 	}
 	Database::disconnect();
 }
@@ -195,7 +210,7 @@ if (!empty($_POST)) {
 									</div>
 									<div class="form-group <?php echo !empty($passwordError) ? 'has-error' : ''; ?>">
 										<label>Password*<span class="labelError"> <?php echo !empty($passwordError) ? $passwordError : ''; ?></span></label>
-										<input type="password" class="form-control" id="employee_password" name="password" readonly="readonly" value="<?php echo $password; ?>"/>
+										<input type="password" class="form-control" name="password"/>
 									</div>
 									<div class="form-group <?php echo !empty($emailError) ? 'has-error' : ''; ?>" >
 										<label>Email*<span class="labelError"> <?php echo !empty($emailError) ? $emailError : ''; ?></span></label>
