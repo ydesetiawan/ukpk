@@ -165,7 +165,7 @@ Database::disconnect();
 									</div>
 								</div>
 								<div class="col-md-12 text-right">
-									<a class="btn btn-primary" href="home.php?menu=question-edit&id=<?php echo $question_id; ?>&id=<?php echo $category_id; ?>"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+									<a class="btn btn-primary" href="home.php?menu=question-edit&id=<?php echo $question_id; ?>"><i class="fa fa-edit"></i>&nbsp;Edit</a>
 									<?php if($activeFlag==1){
 									?>
 									<a class="btn btn-danger" href="home.php?menu=active-flag&id=<?php echo $question_id; ?>&flag=0&type=question&cd=<?php echo $category_id; ?>"><i class="fa fa-lock"></i>&nbsp;Non Aktifkan</a>
